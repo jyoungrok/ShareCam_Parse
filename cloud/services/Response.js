@@ -17,7 +17,7 @@ module.exports = {
     INVAILD_ACCESS_TOKEN:{error_message:"invalid access token",code:"202"},
     INVALID_ACCOUNT:{error_message:"invalid account",code:"203"},
 
-//
+  //
 //    adminLoginFail:function(res){
 //        sails.log.warn(Response.ADMIN_LOGIN_FAIL);
 //        res.badRequest(Response.ADMIN_LOGIN_FAIL);
