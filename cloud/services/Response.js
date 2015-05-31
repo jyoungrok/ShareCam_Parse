@@ -18,7 +18,7 @@ module.exports = {
     INVALID_ACCOUNT:{error_message:"invalid account",code:"203"},
 
   //
-//    adminLoginFail:function(res){
+   //    adminLoginFail:function(res){
 //        sails.log.warn(Response.ADMIN_LOGIN_FAIL);
 //        res.badRequest(Response.ADMIN_LOGIN_FAIL);
 //    },
