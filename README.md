@@ -5,9 +5,9 @@ cloud code for parse
 
 # API 
 
-## Parse - API
+### Parse - API
 
-## Express - HTTP API
+### Express - HTTP API
 
 Address = http://sharecam.parseapp.com/
 
