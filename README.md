@@ -7,13 +7,16 @@ cloud code for parse
 
 ### Parse - API
 
-### Express - HTTP API
-
-Address = http://sharecam.parseapp.com/
-
 | Name | Description| Error Code |
 | ------------- | ----------- | ----------- |
-| send message for verifying phone number | /sm_phone_verify| 200, 201 |
+| send message for verifying phone number | /sm_phone_verify| 200 |
+| send message for verifying phone number | /sm_phone_confirm| 201 |
+
+### Express - HTTP API
+
+
+
+
 
 
 
