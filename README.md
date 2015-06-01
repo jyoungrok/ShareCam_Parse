@@ -8,7 +8,7 @@ cloud code for parse
 ### Parse - API
 
 | Name | Description| parameter |Error Code |
-| ------------- | ----------- | ----------- |
+| ------------- | ----------- | ----------- |----------- |
 | send message for verifying phone number | /sm_phone_verify| phone | 200 |
 | confirm verification number for phone number and save userPhone |  /sm_phone_confirm| vNumber | 201 |
 
