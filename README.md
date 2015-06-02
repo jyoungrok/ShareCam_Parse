@@ -10,7 +10,7 @@ cloud code for parse
 | Name | Description| parameter |Error Code |
 | ------------- | ----------- | ----------- |----------- |
 | send message for verifying phone number | /sm_phone_verify| phone | 200 |
-| confirm verification number for phone number and save userPhone |  /sm_phone_confirm| vNumber | 201 |
+| confirm verification number for phone number and save userPhone |  /sm_phone_confirm| vNumber | 201,202 |
 
 ### Express - HTTP API
 
@@ -27,7 +27,7 @@ cloud code for parse
 | 1 |  invalid parameter   |
 | 200 | invalid phone number |
 | 201 | verification number is not matched |
-
+| 201 | phone number already exist |
 
 
 
