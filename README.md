@@ -11,6 +11,7 @@ cloud code for parse
 | ------------- | ----------- | ----------- |----------- |
 | send message for verifying phone number | /sm_phone_verify| phone | 200 |
 | confirm verification number for phone number and save userPhone |  /sm_phone_confirm| vNumber | 201,202 |
+| synch contact with sharecam friend | /sync_contact | | |
 
 
 # ERROR CODE
