@@ -24,6 +24,18 @@ cloud code for parse
 | 201 | verification number is not matched |
 | 202 | phone number already exist |
 
+# ACL of Class
+
+#### _User
+- create, get, find  - public access
+- update , delete - only accessed by current user
+- update , delete (with phone field) - only accessed by using master key 
+
+#### Contact
+
+#### Friend
+- create, get, find, update, delete - only accessed by current user
+
 
 
   
