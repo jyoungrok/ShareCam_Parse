@@ -24,7 +24,14 @@ cloud code for parse
 | 201 | verification number is not matched |
 | 202 | phone number already exist |
 
-# ACL of Class
+# Class
+## Field of Class
+
+#### Picture
+|objectId|createdBy|phoneList|groupList|friendList|image|hasPhoto|photoSynched|
+||the user object id who create this picture|the array of phone numbers which this picture should be shared with|the array of group objectId...|the array of friend objectId | file of a picture| true if this object should have a picture | true if image filed has a picture file|
+
+## ACL of Class
 
 #### _User
 - create, get, find  - public access
@@ -35,6 +42,8 @@ cloud code for parse
 
 #### Friend
 - create, get, find, update, delete - only accessed by current user
+
+##### Picture
 
 
 
