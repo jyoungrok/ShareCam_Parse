@@ -29,8 +29,8 @@ cloud code for parse
 
 #### Picture
 
-when you upload a picture, you should make object whose hasphoto field is "true" and photoSynched is "false".
-And then you should try updating image field.
+when you upload a picture, you should make object whose hasphoto field is "true" and photoSynched is "false".\n
+And then you should try updating image field.\n
 if you have done , you will have to change the field of photoSynched to "true"
 
 |objectId|createdBy|phoneList|groupList|friendList|image|hasPhoto|photoSynched|
