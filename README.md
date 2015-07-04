@@ -18,7 +18,7 @@ cloud code for parse
 # ERROR CODE
 
 |Code|Description| 
-| ------------- | ----------- |
+
 | 1 |  invalid parameter   |
 | 200 | invalid phone number |
 | 201 | verification number is not matched |
