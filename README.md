@@ -29,6 +29,7 @@ cloud code for parse
 
 #### Picture
 |objectId|createdBy|phoneList|groupList|friendList|image|hasPhoto|photoSynched|
+| ------------- | ----------- |
 ||the user object id who create this picture|the array of phone numbers which this picture should be shared with|the array of group objectId...|the array of friend objectId | file of a picture| true if this object should have a picture | true if image filed has a picture file|
 
 ## ACL of Class
