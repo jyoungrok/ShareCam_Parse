@@ -33,10 +33,9 @@ cloud code for parse
   - when you upload a picture, you should make object whose hasphoto field is "true" and photoSynched is "false".
   - And then you should try updating image field.
   - if you have done , you will have to change the field of photoSynched to "true"
-  - 
 - expired (사진 저장 후 n일이 지난 경우)
   - hasPhoto = false / photoSynched = false
-  -
+
   
 
 |objectId|createdBy|phoneList|groupList|friendList|image|hasPhoto|photoSynched|
