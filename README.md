@@ -41,7 +41,7 @@ cloud code for parse
   
 
 |objectId|createdBy|phoneList|groupList|friendList|image|thumImage|hasPhoto|photoSynched|
-| ------------- | ----------- |------------- | ----------- |------------- | ----------- |------------- | ----------- |
+| ------------- | ----------- |------------- | ----------- |------------- | ----------- |------------- | ----------- | ----------- |
 ||the user object id who create this picture|the array of phone numbers which this picture should be shared with (해당 번호의 사용자가 가입 시 해당 phone number를 지우고 friendList의 friend objectId를 추가 한다)|the array of group objectId...|the array of friend objectId | file of a picture|thumnail  file | true if this object should have a picture | true if image filed has a picture file|
 
 
