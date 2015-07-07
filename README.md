@@ -33,15 +33,16 @@ cloud code for parse
   - when you upload a picture, you should make object whose hasphoto field is "true" and photoSynched is "false".
   - And then you should try updating image field.
   - if you have done , you will have to change the field of photoSynched to "true"
+  - when u do, thumnail image will be automatically generated
 
 - expired (사진 저장 후 n일이 지난 경우)
   - hasPhoto = false / photoSynched = false
 
   
 
-|objectId|createdBy|phoneList|groupList|friendList|image|hasPhoto|photoSynched|
+|objectId|createdBy|phoneList|groupList|friendList|image|thumImage|hasPhoto|photoSynched|
 | ------------- | ----------- |------------- | ----------- |------------- | ----------- |------------- | ----------- |
-||the user object id who create this picture|the array of phone numbers which this picture should be shared with (해당 번호의 사용자가 가입 시 해당 phone number를 지우고 friendList의 friend objectId를 추가 한다)|the array of group objectId...|the array of friend objectId | file of a picture| true if this object should have a picture | true if image filed has a picture file|
+||the user object id who create this picture|the array of phone numbers which this picture should be shared with (해당 번호의 사용자가 가입 시 해당 phone number를 지우고 friendList의 friend objectId를 추가 한다)|the array of group objectId...|the array of friend objectId | file of a picture|thumnail  file | true if this object should have a picture | true if image filed has a picture file|
 
 
 
