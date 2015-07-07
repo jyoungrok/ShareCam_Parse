@@ -46,7 +46,7 @@ cloud code for parse
 | groupList | the array of group objectId...| 
 | friendList | the array of friend objectId | 
 | image | file of a picture | 
-| thumImage | thumnail  file |
+| thumImage | thumnail  file (nX128px) |
 | hasPhoto | true if this object should have a picture |
 | photoSynched | true if image filed has a picture file |
 
