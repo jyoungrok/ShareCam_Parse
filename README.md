@@ -34,7 +34,6 @@ cloud code for parse
   - And then you should try updating image field.
   - if you have done , you will have to change the field of photoSynched to "true" and thumnail image will be automatically generated
 
-
 - expired (사진 저장 후 n일이 지난 경우)
   - hasPhoto = false / photoSynched = false
 
@@ -49,6 +48,7 @@ cloud code for parse
 | thumImage | thumnail  file (nX128px) |
 | hasPhoto | true if this object should have a picture |
 | photoSynched | true if image filed has a picture file |
+| savedBy | the array of users who save the image |
 
 
 
