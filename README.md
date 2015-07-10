@@ -33,7 +33,7 @@ cloud code for parse
 | field | description |
 | ------------- | ----------- |
 | pictureId | the object id of picture |
-| state | the state of uploading a picture  [ -1 - uploading fail / 0 - before uploading / 1 - standby uploading / 2 - uploading / 3 - uploading success  |
+| state | the state of uploading a picture  [ -1 - uploading fail / 0 - standby uploading / 1 - uploading / 2 - uploading success  |
 | percent | the percetage of uploading when the state is uploading |
 
 ## Field of Class [Remote]
