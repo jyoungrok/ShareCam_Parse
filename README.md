@@ -25,7 +25,18 @@ cloud code for parse
 | 202 | phone number already exist |
 
 # Class
-## Field of Class
+
+## Field of Class [Local]
+
+#### UploadingPicture
+
+| field | description |
+| ------------- | ----------- |
+| pictureId | the object id of picture |
+| state | the state of uploading a picture  [ -1 - uploading file / 0 - before uploading / 1 - trying uploading / 2 - uploading / 3 - uploading success  |
+| percent | the percetage of uploading when the state is uploading |
+
+## Field of Class [Remote]
 
 #### Picture
 
