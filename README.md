@@ -12,7 +12,7 @@ cloud code for parse
 | send message for verifying phone number | /sm_phone_verify| phone | 200 |
 | confirm verification number for phone number and save userPhone |  /sm_phone_confirm| vNumber | 201,202 |
 | complete sign up process | /sign_up_completed | | | 
-|  1. 모든 연락처 목록 삭제 후 다시 추가__2. 모든 연락처에 대해 추가되지 않은 쉐어캠 친구가 있다면 찾아서 추가   | /sync_contact | | | 
+|  1. 모든 연락처 목록 삭제 후 다시 추가 <br />2. 모든 연락처에 대해 추가되지 않은 쉐어캠 친구가 있다면 찾아서 추가   | /sync_contact | | | 
 | delete all of contacts createdby user | /delete_contact | | |
 
 # ERROR CODE
