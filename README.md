@@ -14,6 +14,7 @@ cloud code for parse
 | complete sign up process | /sign_up_completed | | | 
 | find phone number which hasn't been added to friend list yet and add it to friend list    | /sync_all_contact | | | 
 | delete all of contacts createdby user | /delete_contact | | |
+| 서버와 친구 목록 동기화 후 (추가, 수정, 삭제된 친구목록을 응답) | /sync_friend_list| | |
 
 # ERROR CODE
 
