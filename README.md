@@ -62,6 +62,21 @@ cloud code for parse
 | photoSynched | true if image filed has a picture file |
 | savedBy | the array of users who save the image |
 
+#### Friend
+
+- User의 create/update/delete(CUD)시 Friend User object 수정
+  - create
+    - 생성되는 user A의 phone을 user B가 가지고 있는 경우 createdBy - B / friendUser - A object가 생성됨
+  - update
+    -  user의 field가 수정되는 경우 해당 user를 friendUser field로 갖는 object의 updatedAt 수정
+  - delete
+    - user가 삭제되는 경우 해당 user를 friendUser field로 갖는 obejct의 deleted를 true로 수정 
+
+| field | description |
+| ------------- | ----------- |
+| createdBy | |
+| friendUser | 친구의 objectId |
+| deleted | 기본적으로 false / friendUser의 user object가 삭제 될 경우 true |
 
 
 
