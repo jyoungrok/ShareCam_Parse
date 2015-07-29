@@ -43,6 +43,8 @@ cloud code for parse
 
 - before create
   - comepleted - false
+- after update (userName,profile)
+  - friend obejct의 updatedAt 수정 (friend class 설명 참조) 
   
 
 | field | description |
