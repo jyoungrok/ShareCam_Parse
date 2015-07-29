@@ -43,7 +43,7 @@ cloud code for parse
 
 - before create
   - comepleted - false
-  - 
+  
 
 | field | description |
 | ------------- | ----------- |
