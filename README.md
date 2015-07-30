@@ -88,6 +88,7 @@ cloud code for parse
 | createdBy | |
 | friendUser | 친구의 objectId |
 | deleted | 기본적으로 false / friendUser의 user object가 삭제 될 경우 true |
+| syncUpdatedAt | friend object가 생성된 시기 혹은 이 후에 friendUser의 object가 update된 시기 |
 
 
 
