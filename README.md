@@ -14,7 +14,8 @@ cloud code for parse
 | complete sign up process | /sign_up_completed | | | 
 | find phone number which hasn't been added to friend list yet and add it to friend list    | /sync_all_contact | | | 
 | delete all of contacts createdby user | /delete_contact | | |
-| 서버와 친구 목록 동기화 후 (추가, 수정, 삭제된 친구목록을 응답) | /sync_friend_list| | |
+| **_`deprecated`_**서버와 친구 목록 동기화 후 (추가, 수정, 삭제된 친구목록을 응답) | /sync_friend_list| | |
+| local에서 아직 동기화 되지 않은 서버(수정,삭제,추가된) 테이터들을 받아온다. | /sync_data| syncDate=local의 데이터 중 last updatedAt//className-sync 하고자 하는 데이터의 className||
 
 # ERROR CODE
 
@@ -32,7 +33,7 @@ cloud code for parse
 
 #### User
 
-- before create
+- before create 
   - comepleted - false
 - after update (userName,profile)
   - (friendUser)friend obejct의 updatedAt 수정 (friend class 설명 참조) 
