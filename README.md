@@ -35,11 +35,11 @@ cloud code for parse
 
 - before create 
   - comepleted - false
-- after update (userName,profile)
-  - (friendUser)friend obejct의 updatedAt 수정 (friend class 설명 참조) 
+- before
+  - (friendUser) userName,phone,profile 중 하나가 바뀐 경우 friend obejct의 syncUpdatedAt 수정 (friend class 설명 참조) 
 - after delete
-  -  (friendUser)friend object의 deleted = true
-  -  (createdBy)contact object 모두 삭제
+  -  (friendUser) friend object의 deleted = true
+  -  (createdBy) contact object 모두 삭제
   
 
 | field | description |
@@ -79,7 +79,7 @@ cloud code for parse
   - create
     - 생성되는 user A의 phone을 user B가 가지고 있는 경우 createdBy - B / friendUser - A object가 생성됨
   - update
-    -  user의 field가 수정되는 경우 해당 user를 friendUser field로 갖는 object의 updatedAt 수정
+    -  user의 field가 수정되는 경우 해당 user를 friendUser field로 갖는 object의 syncUpdatedAt 수정
   - delete
     - user가 삭제되는 경우 해당 user를 friendUser field로 갖는 obejct의 deleted를 true로 수정 
 
