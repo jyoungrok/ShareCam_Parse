@@ -35,7 +35,10 @@ cloud code for parse
 - before create
   - comepleted - false
 - after update (userName,profile)
-  - friend obejct의 updatedAt 수정 (friend class 설명 참조) 
+  - (friendUser)friend obejct의 updatedAt 수정 (friend class 설명 참조) 
+- after delete
+  -  (friendUser)friend object의 deleted = true
+  -  (createdBy)contact object 모두 삭제
   
 
 | field | description |
