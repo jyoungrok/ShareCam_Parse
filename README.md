@@ -36,7 +36,7 @@ cloud code for parse
 - before create 
   - comepleted - false
   - (friendUser) userName,phone,profile 중 하나가 바뀐 경우 friend obejct의 syncUpdatedAt 수정 (friend class 설명 참조) 
-  - profile을 수정/등록 하는 경우 thumPorfile 이미지 저장
+  - profile을 수정/등록 하는 경우 thumPorfile 생성 및 저장
 - after delete
   -  (friendUser) friend object의 deleted = true
   -  (createdBy) contact object 모두 삭제
