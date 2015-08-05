@@ -12,7 +12,7 @@ cloud code for parse
 | send message for verifying phone number | /sm_phone_verify| phone | 200 |
 | confirm verification number for phone number and save userPhone |  /sm_phone_confirm| vNumber | 201,202 |
 | complete sign up process | /sign_up_completed | | | 
-| find phone number which hasn't been added to friend list yet and add it to friend list    | /sync_all_contact | | | 
+| find phone number which hasn't been added to friend list yet and add it to friend list    | /sync_all_contact | type (0 - 동기화 후 모든 친구목록 return / 1 - 동기화 후 추가된 친구 목록 return), syncTime(syncTime 이후의 연락처에 대해 검사) | | 
 | delete all of contacts createdby user | /delete_contact | | |
 | **_`deprecated`_**서버와 친구 목록 동기화 후 (추가, 수정, 삭제된 친구목록을 응답) | /sync_friend_list| | |
 | local에서 아직 동기화 되지 않은 서버(수정,삭제,추가된) 테이터들을 받아온다. | /sync_data| syncDate, className||
