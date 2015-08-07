@@ -48,7 +48,8 @@ cloud code for parse
 | phone | 사용자의 전화번호 (휴대전화 인증 시 등록됨) |
 | authData | | 
 | completed | 회원가입이 완료된 경우 true / 그렇지 않은 경우 false | 
-| profile | 프로필 사진 file | 
+| profile | 프로필 사진  | 
+| thumProfile | thumnail 프로필 사진 |
 
 #### Picture
 
