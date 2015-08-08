@@ -92,6 +92,15 @@ cloud code for parse
 | deleted | 기본적으로 false / friendUser의 user object가 삭제 될 경우 true |
 | syncUpdatedAt | friend object가 생성된 시기 혹은 이 후에 friendUser의 object가 update된 시기 |
 
+#### Verify_UserPhone
+
+| field | description |
+| ------------- | ----------- |
+| createdBy | installation objectId |
+| vNumber | 인증 번호 |
+| phone | 인증번호 요청 전화번호 |
+| expirationTime | 인증 처리 가능 시간 (new Date().getTime()) |
+| createdTime | 인증 요청 생성 시간 (재전송 요청 방지 위해 사용)  (new Date().getTime()) | 
 
 
 ## ACL of Class
