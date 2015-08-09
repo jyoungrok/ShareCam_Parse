@@ -17,6 +17,27 @@ cloud code for parse
 | **_`deprecated`_**서버와 친구 목록 동기화 후 (추가, 수정, 삭제된 친구목록을 응답) | /sync_friend_list| | |
 | local에서 아직 동기화 되지 않은 서버(수정,삭제,추가된) 테이터들을 받아온다. | /sync_data| syncDate, className||
 
+### Description of API
+
+#### 휴대폰 번호 인증
+| Name | parameter |Error Code |
+| ----------- | ----------- |----------- |
+| /sm_phone_verify| phone | 200 |
+|  /sm_phone_confirm| vNumber | 201,202 |
+
+##### 1. 인증번호 받기 /sm_phone_verify
+- @params phone - [String]전화번호
+- Verify_UserPhone object 중 해당 installation으로 생성한 obejct가 1분안에 있는지 확인 -> 203 error
+- Verify_UserPhone object 생성 및 문자 전송
+
+##### 2. 인증번호 확인 /sm_phone_verify
+- @params vNumber - [String]인증번호
+- Verify_UserPhone object 중 해당 인증번호 확인
+- 요청 client anonymous user의 phone 설정 / 해당 phone의 다른 user 삭제 
+
+
+
+
 # ERROR CODE
 
 |Code|Description| 
@@ -41,12 +62,13 @@ cloud code for parse
 - after delete
   -  (friendUser) friend object의 deleted = true
   -  (createdBy) contact object 모두 삭제
+  -  (createdBy) session object 삭제
   
 
 | field | description |
 | ------------- | ----------- |
 | name | 사용자 이름 |
-| userName | 사용자 identifier |
+| userName | 사용자 identifier(임의 생성됨) |
 | phone | 사용자의 전화번호 (휴대전화 인증 시 등록됨) |
 | authData | | 
 | completed | 회원가입이 완료된 경우 true / 그렇지 않은 경우 false | 
