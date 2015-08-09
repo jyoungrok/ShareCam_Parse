@@ -45,7 +45,8 @@ cloud code for parse
 
 | field | description |
 | ------------- | ----------- |
-| userName | 사용자 이름 |
+| name | 사용자 이름 |
+| userName | 사용자 identifier |
 | phone | 사용자의 전화번호 (휴대전화 인증 시 등록됨) |
 | authData | | 
 | completed | 회원가입이 완료된 경우 true / 그렇지 않은 경우 false | 
