@@ -30,7 +30,7 @@ cloud code for parse
 - Verify_UserPhone object 중 해당 installation으로 생성한 obejct가 1분안에 있는지 확인 -> 203 error
 - Verify_UserPhone object 생성 및 문자 전송
 
-##### 2. 인증번호 확인 /sm_phone_verify
+##### 2. 인증번호 확인 /sm_phone_confirm
 - @params vNumber - [String]인증번호
 - Verify_UserPhone object 중 해당 인증번호 확인
 - 요청 client anonymous user의 phone 설정 / 해당 phone의 다른 user 삭제 
