@@ -35,6 +35,9 @@ cloud code for parse
 - Verify_UserPhone object 중 해당 인증번호 확인
 - 요청 client anonymous user의 phone 설정 / 해당 phone의 다른 user 삭제 
 
+##### 3. 인증번호 확인 /sign_up_completed
+- User class의 completed = true 
+- 본 사용자의 연락처를 가지고 있는 타사용자의 친구 목록에 본 사용자를 추가 
 
 
 
