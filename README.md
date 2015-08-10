@@ -33,7 +33,8 @@ cloud code for parse
 ##### 2. 인증번호 확인 /sm_phone_confirm
 - @params vNumber - [String]인증번호
 - Verify_UserPhone object 중 해당 인증번호 확인
-- 요청 client anonymous user의 phone 설정 / 해당 phone의 다른 user 삭제 
+- 해당 phone을 field에 가지고 있는 다른 user 삭제 
+- 새로운 user을 sign up 한 후 response(클라이언트에서 이를 받아 session 설정)
 
 ##### 3. 인증번호 확인 /sign_up_completed
 - User class의 completed = true 
