@@ -24,6 +24,7 @@ cloud code for parse
 | ----------- | ----------- |----------- |
 | /sm_phone_verify| phone | 200 |
 |  /sm_phone_confirm| vNumber | 201,202 |
+| /inform_new_user | | |
 
 ##### 1. 인증번호 받기 /sm_phone_verify
 - @params phone - [String]전화번호
@@ -36,7 +37,7 @@ cloud code for parse
 - 해당 phone을 field에 가지고 있는 다른 user 삭제 
 - 새로운 user을 sign up 한 후 response sessionToken(클라이언트에서 이를 받아 session 설정)
 
-##### 3. 인증번호 확인 /sign_up_completed
+##### 3. 새로운 사용자 등록을 타 사용자에게 알림 /inform_new_user
 - User class의 completed = true 
 - 본 사용자의 연락처를 가지고 있는 타사용자의 친구 목록에 본 사용자를 추가 
 
@@ -75,7 +76,7 @@ cloud code for parse
 | userName | 사용자 identifier(임의 생성됨) |
 | phone | 사용자의 전화번호 (휴대전화 인증 시 등록됨) |
 | authData | | 
-| completed | 회원가입이 완료된 경우 true / 그렇지 않은 경우 false | 
+| completed | 회원가입이 완료된 경우 true / 그렇지 않은 경우 false (client에서 signUp process 완료 후 설정) | 
 | profile | 프로필 사진  | 
 | thumProfile | thumnail 프로필 사진 |
 
