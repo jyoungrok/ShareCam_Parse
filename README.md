@@ -19,7 +19,7 @@ cloud code for parse
 
 ### Description of API
 
-#### 휴대폰 번호 인증
+#### 회원 가입
 | Name | parameter |Error Code |
 | ----------- | ----------- |----------- |
 | /sm_phone_verify| phone | 200 |
@@ -37,7 +37,13 @@ cloud code for parse
 - 해당 phone을 field에 가지고 있는 다른 user 삭제 
 - 새로운 user을 sign up 한 후 response sessionToken(클라이언트에서 이를 받아 session 설정)
 
-##### 3. 새로운 사용자 등록을 타 사용자에게 알림 /inform_new_user
+##### 연락처, 친구 목록 초기화 
+
+##### 3. 연락처로 친구 찾기 /sync_all_contact
+- 마지막 동기화 시간(처음일 경우 - 0) 이후에 수정 혹은 생성된 연락처에 대해 추가되지 않은 쉐어캠 친구가 있다면 찾아서 추가
+- @param - syncTime -(Number) 마지막 동기화 시간 (new Date().getTime()) 
+
+##### 4. 새로운 사용자 등록을 타 사용자에게 알림 /inform_new_user
 - User class의 completed = true 
 - 본 사용자의 연락처를 가지고 있는 타사용자의 친구 목록에 본 사용자를 추가 
 
