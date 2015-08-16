@@ -131,7 +131,7 @@
 | phone | string | 전화번호 |
 | friendUser | Pointer<_User> | 해당 phone을 가지고 있는 사용자 |
 | syncUpdatedAt | Number | 동기화시 이용하는 마지막 데이터 수정 시간 (1970년 1월 1일 0시 0분 0초로부터의 시간 millisecond / new Date().getTime) | 
-| deleted | default : false / 서버에서 데이터가 삭제 된 경우 true /  | 
+
 
 #### Picture
 
