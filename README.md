@@ -49,7 +49,7 @@ cloud code for parse
 
 ##### 4. 연락처로 친구 찾기 /sync_all_contact
 - Parameter
-  - syncTime -(Number) 마지막 동기화 시간 (new Date().getTime()) 
+  - syncTime - [Number] 마지막 동기화 시간 (new Date().getTime()) 
 - Response
   - null
 - Description 
