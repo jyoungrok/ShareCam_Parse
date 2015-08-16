@@ -115,9 +115,12 @@
 - create 예시
   - createdBy : _User ,  phone : +08212341234, syncUpdatedAt: 1439489638478 
 - sync 방식
-  - Client에서 create/update/delete 요청 시 현재 시간이 아닌 클라이언트의 마지막 동기화 시간 설정(syncUpdatedAt)
-  - Client의 CUD요청에 의해 혹은 서버에서 데이터 변경시(ex) 추가한 연락처의 friendUser field를 beforeSave에서 수정한 경우) 동기화 시간 갱신(syncUpdatedAt)
-  - Client에서 동기화 요청 시 서버로 부터 Client의 마지막 동기화 시간 이후의 syncUpdateAt의 데이터들을 불러와 동기화 
+  - syncUpdatedAt이 수정 되는 경우 
+    - Client에서 create/update 요청 시 현재 시간이 아닌 클라이언트의 마지막 동기화 시간으로 설정
+    - Client의 CU요청시 해당 friendUser가 수정되는 경우 현재 시간으로 동기화 시간 설정
+    - friendUser와 연결된 _User가 삭제(회원탈퇴)되어 friendUser의 field가 삭제될 때 설정
+  - Client에서 서버와 동기화 요청 (/sync_all_contact)
+    - 서버로 부터 Client의 마지막 동기화 시간 이후의 syncUpdateAt의 데이터들을 불러와 동기화 
   
 - before create/update
   - (_User.phone = this.phone) _User중 phone을 가진 object가 있다면 friendUser에 추가하고 syncUpdatedAt 갱신
