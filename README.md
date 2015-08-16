@@ -51,7 +51,8 @@
   - 해당 phone을 field에 가지고 있는 다른 user 삭제 
   - 새로운 user을 sign up 한 후 response sessionToken(클라이언트에서 이를 받아 session 설정)
 
-#### 3. 연락처, 친구 목록 초기화 (생략)
+#### 3. 연락처, 친구 목록 초기화 (Client)
+- 연락처, 친구 목록 업로드 
 
 #### 4. 연락처로 친구 찾기 /sync_all_contact
 - Parameter
