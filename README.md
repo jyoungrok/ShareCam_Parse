@@ -51,8 +51,8 @@
   - 해당 phone을 field에 가지고 있는 다른 user 삭제 
   - 새로운 user을 sign up 한 후 response sessionToken(클라이언트에서 이를 받아 session 설정)
 
-#### 3. 연락처, 친구 목록 초기화 (Client)
-- 연락처, 친구 목록 업로드 
+#### 3. 연락처 목록 업로드 (Client)
+- 연락처 목록 업로드 
 
 #### 4. 연락처로 친구 찾기 /sync_all_contact
 - Parameter
@@ -115,7 +115,7 @@
 - create 예시
   - createdBy : _User ,  phone : +08212341234, syncUpdatedAt: 1439489638478
 - before create/update
-  - (_User.phone = this.phone) _User중 phone을 가진 object가 있다면 friendUser에 추가 없다면 null
+  - (_User.phone = this.phone) _User중 phone을 가진 object가 있다면 friendUser에 추가하고 syncUpdatedAt 갱신
 
 | field | type |description |
 | ------------- | ----------- | ----------- |
