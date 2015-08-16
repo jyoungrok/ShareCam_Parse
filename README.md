@@ -112,11 +112,11 @@
 | thumProfile | thumnail 프로필 사진 |
 
 #### Contact 
+- create 예시
+  - createdBy : _User ,  phone : +08212341234, syncUpdatedAt: 1439489638478
+- before create/update
+  - (_User.phone = this.phone) _User중 phone을 가진 object가 있다면 friendUser에 추가 없다면 null
 
-- after create
-  -  (_User.phone = this.phone & Friend.friendUser=_User & Friend.createdBy-this.createdBy) 
-- after delete
-  - (_User.phone = this.phone & Friend.friendUser=_User & Friend.createdBy-this.createdBy) 삭제하는 연락처를 쉐어캠 친구로 가지고 있었다면 해당 친구를 친구목록에서 삭제
 | field | type |description |
 | ------------- | ----------- | ----------- |
 | createdBy | Pointer<_User> | 생성 사용자 |
