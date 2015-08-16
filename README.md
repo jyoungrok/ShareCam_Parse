@@ -1,12 +1,12 @@
 # Table of Contents
 
 1. [API](#api)
-  - [Overview Of API](##overview-of-api)
-  - [Description of API](##description-of-api)
+  - [Overview Of API](#overview-of-api)
+  - [Description of API](#description-of-api)
 - [Class](#class)
-  - [Field of Class](##field-of-class) 
-  - [ACL of Class](##acl-of-class)
-- [Third Example](#third-example)
+  - [Field of Class](#field-of-class) 
+  - [ACL of Class](#acl-of-class)
+
 
 
 # API 
