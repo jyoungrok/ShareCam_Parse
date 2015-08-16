@@ -56,7 +56,7 @@
 
 #### 4. 연락처로 친구 찾기 /sync_all_contact
 - Parameter
-  - syncTime(deprecated) lastSyncUpdatedAt - [Number] 클라이언트 데이터들 중 last syncUpdatedAt (new Date().getTime()) 
+  - syncTime - [Number] 클라이언트의 마지막 동기화 시간
 - Response
   - List<Friend> - 추가, 수정 혹은 삭제된 Friend object list
 - Description 
