@@ -113,7 +113,12 @@
 
 #### Contact 
 - create 예시
-  - createdBy : _User ,  phone : +08212341234, syncUpdatedAt: 1439489638478
+  - createdBy : _User ,  phone : +08212341234, syncUpdatedAt: 1439489638478 
+- sync 방식
+  - Client에서 create/update/delete 요청 시 현재 시간이 아닌 클라이언트의 마지막 동기화 시간 설정(syncUpdatedAt)
+  - Client의 CUD요청에 의해 혹은 서버에서 데이터 변경시(ex) 추가한 연락처의 friendUser field를 beforeSave에서 수정한 경우) 동기화 시간 갱신(syncUpdatedAt)
+  - Client에서 동기화 요청 시 서버로 부터 Client의 마지막 동기화 시간 이후의 syncUpdateAt의 데이터들을 불러와 동기화 
+  
 - before create/update
   - (_User.phone = this.phone) _User중 phone을 가진 object가 있다면 friendUser에 추가하고 syncUpdatedAt 갱신
 
@@ -122,8 +127,8 @@
 | createdBy | Pointer<_User> | 생성 사용자 |
 | phone | string | 전화번호 |
 | friendUser | Pointer<_User> | 해당 phone을 가지고 있는 사용자 |
-| syncUpdatedAt | Number | 클라이언트측에서 마지막으로 데이터를 수정한 시간(1970년 1월 1일 0시 0분 0초로부터의 시간 millisecond) | 
-| deleted | 회원가입이 완료된 경우 true / 그렇지 않은 경우 false (client에서 signUp process 완료 후 설정) | 
+| syncUpdatedAt | Number | 마지막 동기화 요청 시간 (1970년 1월 1일 0시 0분 0초로부터의 시간 millisecond / new Date().getTime) | 
+| deleted | default : false / 서버에서 데이터가 삭제 된 경우 true /  | 
 
 #### Picture
 
