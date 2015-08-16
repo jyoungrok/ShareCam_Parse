@@ -124,9 +124,9 @@ cloud code for parse
   - create
     - 생성되는 user A의 phone을 user B가 가지고 있는 경우 createdBy - B / friendUser - A object가 생성됨
   - update
-    -  user의 field가 수정되는 경우 해당 user를 friendUser field로 갖는 object의 syncUpdatedAt 수정
+    -  _User의 field가 수정되는 경우 해당 user를 friendUser field로 갖는 object의 syncUpdatedAt 수정
   - delete
-    - user가 삭제되는 경우 해당 user를 friendUser field로 갖는 obejct의 deleted를 true로 수정 
+    - _User가 삭제되는 경우 해당 user를 friendUser field로 갖는 obejct의 deleted를 true로 수정 
 
 | field | description |
 | ------------- | ----------- |
