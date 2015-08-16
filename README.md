@@ -1,9 +1,11 @@
 # Table of Contents
 
-1. [API](#API)
-  - [Overview Of API](##Overview of API)
-  - [Description of API](##Description of API)
-- [Class](#Class)
+1. [API](#api)
+  - [Overview Of API](##overview-of-api)
+  - [Description of API](##description-of-api)
+- [Class](#class)
+  - [Field of Class](##field-of-class) 
+  - [ACL of Class](##acl-of-class)
 - [Third Example](#third-example)
 
 
@@ -170,17 +172,17 @@
 
 ## ACL of Class
 
-#### _User
+### _User
 - create, get, find  - public access
 - update , delete - only accessed by current user
 - update , delete (with phone field) - only accessed by using master key 
 
-#### Contact
+### Contact
 
-#### Friend
+### Friend
 - create, get, find, update, delete - only accessed by current user
 
-##### Picture
+#### Picture
 
 
 
