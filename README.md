@@ -1,6 +1,6 @@
 # Table of Contents
 
-- [API](#API)
+1. [API](#API)
   - [Overview Of API](##Overview of API)
   - [Description of API](##Description of API)
 - [Class](#Class)
