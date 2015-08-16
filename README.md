@@ -57,7 +57,7 @@
 - Parameter
   - syncTime - [Number] 마지막 동기화 시간 (new Date().getTime()) 
 - Response
-  - null
+  - List<Friend> - 추가, 수정 혹은 삭제된 Friend object list
 - Description 
   - 마지막 동기화 시간(처음일 경우 - 0) 이후에 수정 혹은 생성된 연락처에 대해 추가되지 않은 쉐어캠 친구가 있다면 찾아서 추가
 
@@ -92,12 +92,12 @@
 
 - before create 
   - comepleted - false
-  - (friendUser = _User) userName,phone,profile 중 하나가 바뀐 경우 friend obejct의 syncUpdatedAt 수정 (friend class 설명 참조)
+  - (Friend.friendUser = this) userName,phone,profile 중 하나가 바뀐 경우 friend obejct의 syncUpdatedAt 수정 (friend class 설명 참조)
   - profile을 수정/등록 하는 경우 thumPorfile 생성 및 저장
 - after delete
-  -  (friendUser = _User) friend object의 deleted = true
-  -  (createdBy = _User) contact object 모두 삭제
-  -  (createdBy = _User) session object 삭제
+  -  (Friend.friendUser = this) friend object의 deleted = true
+  -  (Contact.createdBy = this) contact object 모두 삭제
+  -  (_Session.createdBy = this) session object 삭제
   
 
 | field | description |
@@ -112,6 +112,10 @@
 
 #### Contact 
 
+- after create
+  -  (_User.phone = this.phone & Friend.friendUser=_User & Friend.createdBy-this.createdBy) 
+- after delete
+  - (_User.phone = this.phone & Friend.friendUser=_User & Friend.createdBy-this.createdBy) 삭제하는 연락처를 쉐어캠 친구로 가지고 있었다면 해당 친구를 친구목록에서 삭제
 | field | type |description |
 | ------------- | ----------- | ----------- |
 | createdBy | Pointer<_User> | 생성 사용자 |
