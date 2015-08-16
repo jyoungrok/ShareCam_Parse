@@ -31,19 +31,19 @@ cloud code for parse
   - phone - [String]전화번호
 - Response 
   - NULL
-
-- Verify_UserPhone object 중 해당 installation으로 생성한 obejct가 1분안에 있는지 확인 -> 203 error
-- Verify_UserPhone object 생성 및 문자 전송
+- Description 
+  - Verify_UserPhone object 중 해당 installation으로 생성한 obejct가 1분안에 있는지 확인 -> 203 error
+  - Verify_UserPhone object 생성 및 문자 전송
 
 ##### 2. 인증번호 확인 /sm_phone_confirm
 - Parameter 
   - vNumber - [String]인증번호
 - Response
-  - NULL
-  - 
-- Verify_UserPhone object 중 해당 인증번호 확인
-- 해당 phone을 field에 가지고 있는 다른 user 삭제 
-- 새로운 user을 sign up 한 후 response sessionToken(클라이언트에서 이를 받아 session 설정)
+  - null
+- Description  
+  - Verify_UserPhone object 중 해당 인증번호 확인
+  - 해당 phone을 field에 가지고 있는 다른 user 삭제 
+  - 새로운 user을 sign up 한 후 response sessionToken(클라이언트에서 이를 받아 session 설정)
 
 ##### 연락처, 친구 목록 초기화 
 
@@ -51,19 +51,19 @@ cloud code for parse
 - Parameter
   - syncTime -(Number) 마지막 동기화 시간 (new Date().getTime()) 
 - Response
-  - NULL
-
-- 마지막 동기화 시간(처음일 경우 - 0) 이후에 수정 혹은 생성된 연락처에 대해 추가되지 않은 쉐어캠 친구가 있다면 찾아서 추가
+  - null
+- Description 
+  - 마지막 동기화 시간(처음일 경우 - 0) 이후에 수정 혹은 생성된 연락처에 대해 추가되지 않은 쉐어캠 친구가 있다면 찾아서 추가
 
 
 ##### 4. 새로운 사용자 등록을 타 사용자에게 알림 /inform_new_user
 - Parameter
   - 없음
 - Response
-  - NULL 
-  
-- User class의 completed = true 
-- 본 사용자의 연락처를 가지고 있는 타사용자의 친구 목록에 본 사용자를 추가 
+  - null
+- Description 
+  - User class의 completed = true 
+  - 본 사용자의 연락처를 가지고 있는 타사용자의 친구 목록에 본 사용자를 추가 
 
 
 
