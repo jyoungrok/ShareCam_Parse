@@ -1,13 +1,15 @@
 # Table of Contents
 
-1. [API](#API)
-2. [Class](#class)
-3. [Third Example](#third-example)
+- [API](#API)
+  - [Overview Of API](##Overview of API)
+  - [Description of API](##Description of API)
+- [Class](#Class)
+- [Third Example](#third-example)
 
 
-## API 
+# API 
 
-### Parse - API
+## Overview of API
 
 | Description | Name | parameter |Error Code |
 | ------------- | ----------- | ----------- |----------- |
@@ -19,16 +21,16 @@
 | **_`deprecated`_**서버와 친구 목록 동기화 후 (추가, 수정, 삭제된 친구목록을 응답) | /sync_friend_list| | |
 | local에서 아직 동기화 되지 않은 서버(수정,삭제,추가된) 테이터들을 받아온다. | /sync_data| syncDate, className||
 
-### Description of API
+## Description of API
 
-#### 회원 가입
+### 회원 가입
 | Name | parameter |Error Code |
 | ----------- | ----------- |----------- |
 | /sm_phone_verify| phone | 200 |
 |  /sm_phone_confirm| vNumber | 201,202 |
 | /inform_new_user | | |
 
-##### 1. 인증번호 받기 /sm_phone_verify
+#### 1. 인증번호 받기 /sm_phone_verify
 - Paramaeter
   - phone - [String]전화번호
 - Response 
@@ -37,7 +39,7 @@
   - Verify_UserPhone object 중 해당 installation으로 생성한 obejct가 1분안에 있는지 확인 -> 203 error
   - Verify_UserPhone object 생성 및 문자 전송
 
-##### 2. 인증번호 확인 /sm_phone_confirm
+#### 2. 인증번호 확인 /sm_phone_confirm
 - Parameter 
   - vNumber - [String]인증번호
 - Response
@@ -47,9 +49,9 @@
   - 해당 phone을 field에 가지고 있는 다른 user 삭제 
   - 새로운 user을 sign up 한 후 response sessionToken(클라이언트에서 이를 받아 session 설정)
 
-##### 3. 연락처, 친구 목록 초기화 (생략)
+#### 3. 연락처, 친구 목록 초기화 (생략)
 
-##### 4. 연락처로 친구 찾기 /sync_all_contact
+#### 4. 연락처로 친구 찾기 /sync_all_contact
 - Parameter
   - syncTime - [Number] 마지막 동기화 시간 (new Date().getTime()) 
 - Response
@@ -58,7 +60,7 @@
   - 마지막 동기화 시간(처음일 경우 - 0) 이후에 수정 혹은 생성된 연락처에 대해 추가되지 않은 쉐어캠 친구가 있다면 찾아서 추가
 
 
-##### 5. 새로운 사용자 등록을 타 사용자에게 알림 /inform_new_user
+#### 5. 새로운 사용자 등록을 타 사용자에게 알림 /inform_new_user
 - Parameter
   - 없음
 - Response
@@ -69,7 +71,7 @@
 
 
 
-# ERROR CODE
+## ERROR CODE
 
 |Code|Description| 
 | ------------- | ----------- |
