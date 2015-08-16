@@ -64,7 +64,7 @@ cloud code for parse
 
 ## Field of Class 
 
-#### User
+#### _User
 
 - before create 
   - comepleted - false
@@ -85,6 +85,15 @@ cloud code for parse
 | completed | 회원가입이 완료된 경우 true / 그렇지 않은 경우 false (client에서 signUp process 완료 후 설정) | 
 | profile | 프로필 사진  | 
 | thumProfile | thumnail 프로필 사진 |
+
+#### Contact 
+
+| field | type |description |
+| ------------- | ----------- | ----------- |
+| createdBy | Pointer<_User> | 생성 사용자 |
+| phone | string | 전화번호 |
+| syncUpdatedAt | Number | 클라이언트측에서 마지막으로 데이터를 수정한 시간(1970년 1월 1일 0시 0분 0초로부터의 시간 millisecond) | 
+| deleted | 회원가입이 완료된 경우 true / 그렇지 않은 경우 false (client에서 signUp process 완료 후 설정) | 
 
 #### Picture
 
