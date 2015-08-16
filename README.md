@@ -121,6 +121,7 @@
 | ------------- | ----------- | ----------- |
 | createdBy | Pointer<_User> | 생성 사용자 |
 | phone | string | 전화번호 |
+| friendUser | Pointer<_User> | 해당 phone을 가지고 있는 사용자 |
 | syncUpdatedAt | Number | 클라이언트측에서 마지막으로 데이터를 수정한 시간(1970년 1월 1일 0시 0분 0초로부터의 시간 millisecond) | 
 | deleted | 회원가입이 완료된 경우 true / 그렇지 않은 경우 false (client에서 signUp process 완료 후 설정) | 
 
@@ -147,7 +148,7 @@
 | photoSynched | true if image filed has a picture file |
 | savedBy | the array of users who save the image |
 
-#### Friend
+#### Friend **_`deprecated`_**
 
 - User의 create/update/delete(CUD)시 Friend User object 수정
   - create
