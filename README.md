@@ -62,7 +62,7 @@
 - Description 
   - 마지막 동기화 시간(처음일 경우 - 0) 이후에 수정 혹은 생성된 연락처에 대해 추가되지 않은 쉐어캠 친구가 있다면 찾아서 추가
 
-#### 4. 연락처로 친구 찾기 /sync_contact
+#### 4. 연락처로 친구 찾기 /fetch_contact
 - Parameter
   - syncTime - [Number] 마지막 동기화 시간
 - Response
