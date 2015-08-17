@@ -54,11 +54,21 @@
 #### 3. 연락처 목록 업로드 (Client)
 - 연락처 목록 업로드 
 
-#### 4. 연락처로 친구 찾기 /sync_all_contact
+#### 4. 연락처로 친구 찾기 /sync_all_contact ** deprecated **
 - Parameter
   - syncTime - [Number] 클라이언트의 마지막 동기화 시간
 - Response
   - List<Friend> - 추가, 수정 혹은 삭제된 Friend object list
+- Description 
+  - 마지막 동기화 시간(처음일 경우 - 0) 이후에 수정 혹은 생성된 연락처에 대해 추가되지 않은 쉐어캠 친구가 있다면 찾아서 추가
+
+#### 4. 연락처로 친구 찾기 /sync_contact
+- Parameter
+  - syncTime - [Number] 마지막 동기화 시간
+- Response
+  - Contact - 수정된 contact List
+  - syncTime - 갱신된 최종 동기화 시간
+  - ex) {Contact : ,syncTime : }
 - Description 
   - 마지막 동기화 시간(처음일 경우 - 0) 이후에 수정 혹은 생성된 연락처에 대해 추가되지 않은 쉐어캠 친구가 있다면 찾아서 추가
 
