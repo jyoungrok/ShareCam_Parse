@@ -68,9 +68,9 @@
 - Response
   - Contact - 수정된 contact List
   - syncTime - 갱신된 최종 동기화 시간
-  - ex) {Contact : ,syncTime : }
+  - ex) {Contact : ,syncTime : }  ///  {"contact":[{"ACL":{"3dHVZVA697":{"read":true,"write":true}},"__type":"Object","className":"Contact","contactName":null,"contactPhotoUri":null,"createdAt":"2015-08-18T04:33:54.203Z","createdBy":{"__type":"Pointer","className":"_User","objectId":"3dHVZVA697"},"friendUser":{"__type":"Pointer","className":"_User","objectId":"K8fjUZNgK7"},"objectId":"KRGvOr1yuV","phone":"+821041230128","recordId":156,"syncUpdatedAt":1439872434208,"updatedAt":"2015-08-18T04:33:54.203Z"}],"syncTime":1439872442576}
 - Description 
-  - 마지막 동기화 시간(처음일 경우 - 0) 이후에 수정 혹은 생성된 연락처에 대해 추가되지 않은 쉐어캠 친구가 있다면 찾아서 추가
+  - 마지막 동기화 시간(처음일 경우 - 0) 이후에 수정 혹은 생성된 연락처에 대해 추가되지 않은 쉐어캠 친구가 있다면 불러와서 갱신
 
 
 #### 5. 새로운 사용자 등록을 타 사용자에게 알림 /inform_new_user
