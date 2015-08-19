@@ -128,7 +128,7 @@
   - syncUpdatedAt이 수정 되는 경우 
     - Client에서 create/update 요청 시 syncUpdatedAt 설정
     - Client의 CU요청시 해당 friendUser가 수정될 때 syncUpdatedAt 설정
-    - friendUser와 연결된 _User가 삭제(회원탈퇴)되어 friendUser의 field가 삭제될 때 syncUpdatedAt 설정
+    - friendUser와 연결된 _User가 수정/삭제될 시 syncUpdatedAt 설정
   - Client에서 서버와 동기화 요청 (/sync_all_contact)
     - 서버로 부터 Client에 저장된 마지막 동기화 시간 이후의 syncUpdateAt의 데이터들을 불러와 동기화 
   
