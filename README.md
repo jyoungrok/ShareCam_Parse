@@ -90,7 +90,7 @@
 #### 5. 새로운 사용자 등록을 타 사용자에게 알림 /inform_new_user
 - Action
   - custom api [/inform_new_user](#/inform_new_user)
-  - 
+  
 #### 6. 이름/프로필/회원가입 완료 설정
 - Action
   - save (User.name, User.completed, User.profile)
