@@ -73,11 +73,11 @@
 
 #### 1. 인증번호 받기 
 - Action
-  -  custom api [/sm_phone_verify](#/sm_phone_verify)
+  -  [/sm_phone_verify](#/sm_phone_verify)
 
 #### 2. 인증번호 확인 
 - Action
-  - custom api [/sm_phone_confirm](#/sm_phone_confirm) 
+  - [/sm_phone_confirm](#/sm_phone_confirm) 
  
 #### 3. 연락처 목록 업로드 
 - Action
@@ -85,11 +85,11 @@
 
 #### 4. 연락처 동기화 
 - Action
-  - custom api [/fetch_contact](#/fetch_contact)
+  - [/fetch_contact](#/fetch_contact)
 
 #### 5. 새로운 사용자 등록을 타 사용자에게 알림 /inform_new_user
 - Action
-  - custom api [/inform_new_user](#/inform_new_user)
+  - [/inform_new_user](#/inform_new_user)
   
 #### 6. 이름/프로필/회원가입 완료 설정
 - Action
@@ -102,8 +102,6 @@
 - Action
   - custom api [/fetch_contact](#/fetch_contact)
   - 앱 실행시 주기적(5분) 혹은 사용자가 수동으로(친구 관리 페이지에서) 요청
-
-
 
 
 
