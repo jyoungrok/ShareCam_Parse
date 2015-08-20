@@ -13,19 +13,6 @@
 
 ## Overview of API
 
-| Description | Name | parameter |Error Code |
-| ------------- | ----------- | ----------- |----------- |
-| send message for verifying phone number | /sm_phone_verify| phone | 200 |
-| confirm verification number for phone number and save userPhone |  /sm_phone_confirm| vNumber | 201,202 |
-| complete sign up process | /sign_up_completed | | | 
-| find phone number which hasn't been added to friend list yet and add it to friend list    | /sync_all_contact | type (0 - 동기화 후 모든 친구목록 return / 1 - 동기화 후 추가된 친구 목록 return), syncTime(syncTime 이후의 연락처에 대해 검사) | | 
-| delete all of contacts createdby user | /delete_contact | | |
-| **_`deprecated`_**서버와 친구 목록 동기화 후 (추가, 수정, 삭제된 친구목록을 응답) | /sync_friend_list| | |
-| local에서 아직 동기화 되지 않은 서버(수정,삭제,추가된) 테이터들을 받아온다. | /sync_data| syncDate, className||
-
-## Description of API
-
-### 회원 가입
 | Name | parameter |Error Code |
 | ----------- | ----------- |----------- |
 | /sm_phone_verify| [String]phone | 200,203 |
@@ -33,7 +20,9 @@
 | /inform_new_user | | |
 | /fetch_contact | [Number]syncTime | |
 
-#### 1. 인증번호 받기 /sm_phone_verify
+## Description of API
+
+### /sm_phone_verify
 - Paramaeter
   - phone - [String]전화번호
 - Response 
@@ -41,7 +30,7 @@
 - Description 
   - Verify_UserPhone object 생성 및 문자 전송
 
-#### 2. 인증번호 확인 /sm_phone_confirm
+### /sm_phone_confirm
 - Parameter 
   - vNumber - [String]인증번호
 - Response
@@ -52,15 +41,7 @@
   - 해당 phone을 field에 가지고 있는 다른 user 삭제 
   - 새로운 user을 sign up 한 후 response sessionToken(클라이언트에서 이를 받아 session 설정)
 
-#### 3. 연락처 목록 업로드 (Client)
-- Action
-  - save
-- Parameter
-  - Contact.phone, Contact.recordId
-  - ex)  phone : +8212341234(국제전화번호 형태), recordId:234
-
-
-#### 4. 연락처로 친구 찾기 /fetch_contact
+### /fetch_contact
 - Parameter
   - syncTime - [Number] 마지막 동기화 시간
 - Response
@@ -69,28 +50,13 @@
 - Description 
   - 마지막 동기화 시간(syncUpdatedAt과 syncTime 비교)(처음일 경우 - 0) 이후에 수정/생성된 연락처를 response
 
-#### 5. 새로운 사용자 등록을 타 사용자에게 알림 /inform_new_user
+### /inform_new_user
 - Parameter
   - 없음
 - Response
   - null
 - Description 
   - 본 사용자의 연락처를 가지고 있는 타사용자의 친구 목록에 본 사용자를 추가 (타사용자의 contact object의 friendUser field에 추가)
-  -
-#### 6. 이름/프로필/회원가입 완료 설정
-- Action
-  - save 
-- Parameter
-  - User.name, User.completed, User.profile
-
-### 연락처 동기화 
-| Name | parameter |Error Code |
-| ----------- | ----------- |----------- |
-| /fetch_contact | [Number]syncTime | |
-
-
-
-
 
 ## ERROR CODE
 
@@ -101,8 +67,47 @@
 | 201 | verification number is not matched |
 | 203 | continuous attempts are not allowed. please try after a minute |
 
-# Class
+## Sequence
 
+### 회원 가입
+
+#### 1. 인증번호 받기 
+- Action
+  -  custom api [/sm_phone_verify](#/sm_phone_verify)
+
+#### 2. 인증번호 확인 
+- Action
+  - custom api [/sm_phone_confirm](#/sm_phone_confirm) 
+ 
+#### 3. 연락처 목록 업로드 
+- Action
+  - save (Contact.phone, Contact.recordId)
+
+#### 4. 연락처 동기화 
+- Action
+  - custom api [/fetch_contact](#/fetch_contact)
+
+#### 5. 새로운 사용자 등록을 타 사용자에게 알림 /inform_new_user
+- Action
+  - custom api [/inform_new_user](#/inform_new_user)
+  - 
+#### 6. 이름/프로필/회원가입 완료 설정
+- Action
+  - save (User.name, User.completed, User.profile)
+
+
+### 동기화 
+
+#### 1. 연락처 동기화
+- Action
+  - custom api [/fetch_contact](#/fetch_contact)
+  - 앱 실행시 주기적(5분) 혹은 사용자가 수동으로(친구 관리 페이지에서) 요청
+
+
+
+
+
+# Class
 
 ## Field of Class 
 
