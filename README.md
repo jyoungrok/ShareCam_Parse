@@ -123,28 +123,28 @@
   -  (_Session.createdBy = this) session object 삭제
   
 
-| field | description |
-| ------------- | ----------- |
-| name | 사용자 이름 |
-| userName | 사용자 identifier(임의 생성됨) |
-| phone | 사용자의 전화번호 (휴대전화 인증 시 등록됨) |
-| authData | | 
-| completed | 회원가입이 완료된 경우 true / 그렇지 않은 경우 false (client에서 signUp process 완료 후 설정) | 
-| profile | 프로필 사진| 
-| thumProfile | thumnail 프로필 사진(자동 생성) |
-| height | 프로필의 height(px) (자동 생성) |
-| width | 프로필의 width(px) (자동 생성) |
+| field | type | description |
+| ------------- | ------------- | ----------- |
+| name | String |사용자 이름 |
+| userName | String |사용자 identifier(임의 생성됨) |
+| phone | String | 사용자의 전화번호 (휴대전화 인증 시 등록됨) |
+| authData | | | 
+| completed | boolean | 회원가입이 완료된 경우 true / 그렇지 않은 경우 false (client에서 signUp process 완료 후 설정) | 
+| profile | ParseFile | 프로필 사진| 
+| thumProfile | ParseFile | thumnail 프로필 사진(자동 생성) |
+| height | Number | 프로필의 height(px) (자동 생성) |
+| width | Number | 프로필의 width(px) (자동 생성) |
 
 
 #### Verify_UserPhone
 
-| field | description |
-| ------------- | ----------- |
-| createdBy | installation objectId |
-| vNumber | 인증 번호 |
-| phone | 인증번호 요청 전화번호 |
-| expirationTime | 인증 처리 가능 시간 (new Date().getTime()) |
-| createdTime | 인증 요청 생성 시간 (재전송 요청 방지 위해 사용)  (new Date().getTime()) | 
+| field | type | description |
+| ------------- | ------------- | ----------- |
+| createdBy | Pointer<_User>| installation objectId |
+| vNumber | Number | 인증 번호 |
+| phone | Number | 인증번호 요청 전화번호 |
+| expirationTime | Number | 인증 처리 가능 시간 (new Date().getTime()) |
+| createdTime | Number | 인증 요청 생성 시간 (재전송 요청 방지 위해 사용)  (new Date().getTime()) | 
 
 #### Contact 
 
