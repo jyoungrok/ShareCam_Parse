@@ -28,8 +28,8 @@
 ### 회원 가입
 | Name | parameter |Error Code |
 | ----------- | ----------- |----------- |
-| /sm_phone_verify| [String]phone | 200 |
-|  /sm_phone_confirm| [String]vNumber | 201,202 |
+| /sm_phone_verify| [String]phone | 200,203 |
+|  /sm_phone_confirm| [String]vNumber | 201 |
 | /inform_new_user | | |
 | /fetch_contact | [Number]syncTime | |
 
@@ -39,7 +39,6 @@
 - Response 
   - NULL
 - Description 
-  - Verify_UserPhone object 중 해당 installation으로 생성한 obejct가 1분안에 있는지 확인 -> 203 error
   - Verify_UserPhone object 생성 및 문자 전송
 
 #### 2. 인증번호 확인 /sm_phone_confirm
@@ -57,15 +56,9 @@
 - Action
   - save
 - Parameter
-  - Contact. 
+  - Contact.phone, Contact.recordId
+  - ex)  phone : +8212341234(국제전화번호 형태), recordId:234
 
-#### 4. 연락처로 친구 찾기 /sync_all_contact ** deprecated **
-- Parameter
-  - syncTime - [Number] 클라이언트의 마지막 동기화 시간
-- Response
-  - List<Friend> - 추가, 수정 혹은 삭제된 Friend object list
-- Description 
-  - 마지막 동기화 시간(처음일 경우 - 0) 이후에 수정 혹은 생성된 연락처에 대해 추가되지 않은 쉐어캠 친구가 있다면 찾아서 추가
 
 #### 4. 연락처로 친구 찾기 /fetch_contact
 - Parameter
@@ -90,6 +83,15 @@
 - Parameter
   - User.name, User.completed, User.profile
 
+### 연락처 동기화 
+| Name | parameter |Error Code |
+| ----------- | ----------- |----------- |
+| /fetch_contact | [Number]syncTime | |
+
+
+
+
+
 ## ERROR CODE
 
 |Code|Description| 
@@ -97,7 +99,6 @@
 | 1 |  invalid parameter   |
 | 200 | invalid phone number |
 | 201 | verification number is not matched |
-| 202 | phone number already exist |
 | 203 | continuous attempts are not allowed. please try after a minute |
 
 # Class
@@ -109,8 +110,9 @@
 
 - before create 
   - comepleted - false
+  - username - phone
   - (Friend.friendUser = this) userName,phone,profile 중 하나가 바뀐 경우 friend obejct의 syncUpdatedAt 수정 (friend class 설명 참조)
-  - profile을 수정/등록 하는 경우 thumPorfile 생성 및 저장
+  - profile을 수정/등록 하는 경우 thumPorfile, height, width 생성 및 저장
 - after delete
   -  (Friend.friendUser = this) friend object의 deleted = true
   -  (Contact.createdBy = this) contact object 모두 삭제
@@ -124,12 +126,24 @@
 | phone | 사용자의 전화번호 (휴대전화 인증 시 등록됨) |
 | authData | | 
 | completed | 회원가입이 완료된 경우 true / 그렇지 않은 경우 false (client에서 signUp process 완료 후 설정) | 
-| profile | 프로필 사진  | 
-| thumProfile | thumnail 프로필 사진 |
+| profile | 프로필 사진| 
+| thumProfile | thumnail 프로필 사진(자동 생성) |
+| height | 프로필의 height(px) (자동 생성) |
+| width | 프로필의 width(px) (자동 생성) |
+
+
+#### Verify_UserPhone
+
+| field | description |
+| ------------- | ----------- |
+| createdBy | installation objectId |
+| vNumber | 인증 번호 |
+| phone | 인증번호 요청 전화번호 |
+| expirationTime | 인증 처리 가능 시간 (new Date().getTime()) |
+| createdTime | 인증 요청 생성 시간 (재전송 요청 방지 위해 사용)  (new Date().getTime()) | 
 
 #### Contact 
-- create 예시
-  - createdBy : _User ,  phone : +08212341234, syncUpdatedAt: 1439489638478 
+
 - sync 방식
   - syncUpdatedAt이 수정 되는 경우 
     - Client에서 create/update 요청 시 syncUpdatedAt 설정
@@ -139,13 +153,15 @@
     - 서버로 부터 Client에 저장된 마지막 동기화 시간 이후의 syncUpdateAt의 데이터들을 불러와 동기화 
   
 - before create/update
+  - createdBy - current user 설정
   - (_User.phone = this.phone) _User중 phone을 가진 object가 있다면 friendUser에 추가하고 syncUpdatedAt 갱신
+  
 
 | field | type |description |
 | ------------- | ----------- | ----------- |
-| createdBy | Pointer<_User> | 생성 사용자 |
+| createdBy | Pointer<_User> | (default : current user) 생성 사용자 |
 | phone | string | 전화번호 |
-| friendUser | Pointer<_User> | 해당 phone을 가지고 있는 사용자 |
+| friendUser | Pointer<_User> | 해당 phone을 가지고 있는 사용자(contact의 before_save / inform_new_user api 에 의해 생성) |
 | recordId | Number | 클라이언트에 저장된 contact ID (안드로이드 - CONTACT_ID) |
 | syncUpdatedAt | Number | (default : 0) 동기화시 이용하는 마지막 데이터 수정 시간(서버에서 자동 generation) (1970년 1월 1일 0시 0분 0초로부터의 시간 millisecond / new Date().getTime) | 
 
@@ -173,32 +189,7 @@
 | photoSynched | true if image filed has a picture file |
 | savedBy | the array of users who save the image |
 
-#### Friend **_`deprecated`_**
 
-- User의 create/update/delete(CUD)시 Friend User object 수정
-  - create
-    - 생성되는 user A의 phone을 user B가 가지고 있는 경우 createdBy - B / friendUser - A object가 생성됨
-  - update
-    -  _User의 field가 수정되는 경우 해당 user를 friendUser field로 갖는 object의 syncUpdatedAt 수정
-  - delete
-    - _User가 삭제되는 경우 해당 user를 friendUser field로 갖는 obejct의 deleted를 true로 수정 
-
-| field | description |
-| ------------- | ----------- |
-| createdBy | |
-| friendUser | 친구의 objectId |
-| deleted | 기본적으로 false / friendUser의 user object가 삭제 될 경우 true |
-| syncUpdatedAt | friend object가 생성된 시기 혹은 이 후에 friendUser의 object가 update된 시기 |
-
-#### Verify_UserPhone
-
-| field | description |
-| ------------- | ----------- |
-| createdBy | installation objectId |
-| vNumber | 인증 번호 |
-| phone | 인증번호 요청 전화번호 |
-| expirationTime | 인증 처리 가능 시간 (new Date().getTime()) |
-| createdTime | 인증 요청 생성 시간 (재전송 요청 방지 위해 사용)  (new Date().getTime()) | 
 
 
 ## ACL of Class
