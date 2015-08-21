@@ -169,6 +169,14 @@
 | recordId | Number | 클라이언트에 저장된 contact ID (안드로이드 - CONTACT_ID) |
 | syncUpdatedAt | Number | (default : 0) 동기화시 이용하는 마지막 데이터 수정 시간(서버에서 자동 generation) (1970년 1월 1일 0시 0분 0초로부터의 시간 millisecond / new Date().getTime) | 
 
+#### Group
+
+| field | type |description |
+| ------------- | ----------- | ----------- |
+| createdBy | Pointer<_User> | (default : current user) 생성 사용자 |
+| name | String | 그룹 이름 (그룹 생성자만 수정 가능) |
+| phoneList | Array<String> | 그룹에 초대된 휴대번호 목록 |
+
 
 #### Picture
 
