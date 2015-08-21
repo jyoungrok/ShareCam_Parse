@@ -196,6 +196,7 @@
 | name | String | 그룹 이름 (그룹 생성자만 수정 가능) |
 | userList | Array<Pointer<_User>> | 사용자 리스트 |
 | phoneList | Array<String> | 그룹에 초대된 휴대번호 목록 |
+| mainPicture | Pointer<Picture> | 대문 사진 |
 
 
 #### Picture
