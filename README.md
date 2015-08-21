@@ -111,7 +111,13 @@
 ## Field of Class 
 
 #### _User
-
+- ACL
+  - class
+    - X
+  - object
+    - public read / only createdBy write (without phone field) ( 구현 전 )
+  - field
+    - phone - only master write ( 구현 전 )
 - before create 
   - comepleted - false
   - username - phone
@@ -121,7 +127,6 @@
   -  (Friend.friendUser = this) friend object의 deleted = true
   -  (Contact.createdBy = this) contact object 모두 삭제
   -  (_Session.createdBy = this) session object 삭제
-  
 
 | field | type | description |
 | ------------- | ------------- | ----------- |
@@ -137,7 +142,12 @@
 
 
 #### Verify_UserPhone
-
+- ACL
+  - class
+    - only Master read/write (ACL of class)
+  - object
+    - X 
+  
 | field | type | description |
 | ------------- | ------------- | ----------- |
 | createdBy | Pointer<_User>| installation objectId |
@@ -147,13 +157,17 @@
 | createdTime | Number | 인증 요청 생성 시간 (재전송 요청 방지 위해 사용)  (new Date().getTime()) | 
 
 #### Contact 
-
+- ACL
+  - class
+    - X
+  - object 
+    - only createdBy read/write (ACL of object)
 - sync 방식
   - syncUpdatedAt이 수정 되는 경우 
     - Client에서 create/update 요청 시 syncUpdatedAt 설정
-    - Client의 CU요청시 해당 friendUser가 수정될 때 syncUpdatedAt 설정
+    - contact의 friendUser가 수정될 때 syncUpdatedAt 설정
     - friendUser와 연결된 _User가 수정/삭제될 시 syncUpdatedAt 설정
-  - Client에서 서버와 동기화 요청 (/sync_all_contact)
+  - Client에서 서버와 동기화 요청 (/fetch_contact)
     - 서버로 부터 Client에 저장된 마지막 동기화 시간 이후의 syncUpdateAt의 데이터들을 불러와 동기화 
   
 - before create/update
@@ -170,16 +184,28 @@
 | syncUpdatedAt | Number | (default : 0) 동기화시 이용하는 마지막 데이터 수정 시간(서버에서 자동 generation) (1970년 1월 1일 0시 0분 0초로부터의 시간 millisecond / new Date().getTime) | 
 
 #### Group
+- ACL
+  - class
+    - X
+  - object
+    - userList - read  / only createdBy - write ( 구현 전 )
 
 | field | type |description |
 | ------------- | ----------- | ----------- |
 | createdBy | Pointer<_User> | (default : current user) 생성 사용자 |
 | name | String | 그룹 이름 (그룹 생성자만 수정 가능) |
+| userList | Array<Pointer<_User>> | 사용자 리스트 |
 | phoneList | Array<String> | 그룹에 초대된 휴대번호 목록 |
 
 
 #### Picture
-
+- ACL
+  - class
+    - X
+  - object
+    - userList, userList of groupList read / public write ( 구현 전 )
+  - field
+    - groupList - userList of groupList write ( 구현 전 )   
 - create
   - when you upload a picture, you should make object whose hasphoto field is "true" and photoSynched is "false".
   - And then you should try updating image field.
@@ -194,7 +220,7 @@
 | createdBy |the user object id who create this picture|
 | phoneList | the array of phone numbers which this picture should be shared with (해당 번호의 사용자가 가입 시 해당 phone number를 지우고 friendList의 friend objectId를 추가 한다)|
 | groupList | the array of group objectId...| 
-| friendList | the array of friend objectId | 
+| userList | the array of friend objectId | 
 | image | file of a picture | 
 | thumImage | thumnail  file (nX128px) |
 | hasPhoto | true if this object should have a picture |
