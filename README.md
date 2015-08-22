@@ -108,9 +108,9 @@
 
 # Class
 
-## Field of Class 
 
-#### _User
+
+## _User
 - ACL
   - class
     - X
@@ -141,7 +141,7 @@
 | width | Number | 프로필의 width(px) (자동 생성) |
 
 
-#### Verify_UserPhone
+## Verify_UserPhone
 - ACL
   - class
     - only Master read/write (ACL of class)
@@ -156,7 +156,7 @@
 | expirationTime | Number | 인증 처리 가능 시간 (new Date().getTime()) |
 | createdTime | Number | 인증 요청 생성 시간 (재전송 요청 방지 위해 사용)  (new Date().getTime()) | 
 
-#### Contact 
+## Contact 
 - ACL
   - class
     - X
@@ -183,7 +183,7 @@
 | recordId | Number | 클라이언트에 저장된 contact ID (안드로이드 - CONTACT_ID) |
 | syncUpdatedAt | Number | (default : 0) 동기화시 이용하는 마지막 데이터 수정 시간(서버에서 자동 generation) (1970년 1월 1일 0시 0분 0초로부터의 시간 millisecond / new Date().getTime) | 
 
-#### Group
+## Group
 - ACL
   - class
     - X
@@ -200,7 +200,7 @@
 | syncUpdatedAt| Number | (default : 0) 동기화시 이용하는 마지막 데이터 수정 시간(서버에서 자동 generation) (1970년 1월 1일 0시 0분 0초로부터의 시간 millisecond / new Date().getTime) |
 
 
-#### Picture
+## Picture
 - ACL
   - class
     - X
@@ -228,23 +228,6 @@
 | hasPhoto | true if this object should have a picture |
 | photoSynched | true if image filed has a picture file |
 | savedBy | the array of users who save the image |
-
-
-
-
-## ACL of Class
-
-### _User
-- create, get, find  - public access
-- update , delete - only accessed by current user
-- update , delete (with phone field) - only accessed by using master key 
-
-### Contact
-
-### Friend
-- create, get, find, update, delete - only accessed by current user
-
-#### Picture
 
 
 
