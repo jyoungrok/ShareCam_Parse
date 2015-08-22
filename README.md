@@ -197,6 +197,7 @@
 | userList | Array<Pointer<_User>> | 사용자 리스트 |
 | phoneList | Array<String> | 그룹에 초대된 휴대번호 목록 |
 | mainPicture | Pointer<Picture> | 대문 사진 |
+| syncUpdatedAt| Number | (default : 0) 동기화시 이용하는 마지막 데이터 수정 시간(서버에서 자동 generation) (1970년 1월 1일 0시 0분 0초로부터의 시간 millisecond / new Date().getTime) |
 
 
 #### Picture
