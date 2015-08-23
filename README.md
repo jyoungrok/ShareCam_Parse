@@ -162,13 +162,20 @@
     - X
   - object 
     - only createdBy read/write (ACL of object)
-- sync 방식
-  - syncUpdatedAt이 수정 되는 경우 
-    - Client에서 create/update 요청 시 syncUpdatedAt 설정
-    - contact의 friendUser가 수정될 때 syncUpdatedAt 설정
-    - friendUser와 연결된 _User가 수정/삭제될 시 syncUpdatedAt 설정
-  - Client에서 서버와 동기화 요청 (/fetch_contact)
-    - 서버로 부터 Client에 저장된 마지막 동기화 시간 이후의 syncUpdateAt의 데이터들을 불러와 동기화 
+- sync 
+  - 데이터 수정되는 경우 -> syncUpdatedAt이 갱신
+    - Client에서 contact create/update 요청 시 
+    - Contact의 friendUser field가 수정될 때
+      - contact create시 beforeSave에서 수정
+      - 다른 사용자가 가입하여 inform_new_user api에 의해 수정
+      - friendUser에 연결된 user가 삭제되는 경우
+    - Contact의 friendUser에 연결된 User가 수정되는 경우
+  - server로 부터 데이터 동기화 (갱신된 syncUpdatedAt object들에 한해서)
+    - fetch_contact API
+      - 서버로 부터 Client에 저장된 마지막 동기화 시간 이후의 syncUpdateAt의 데이터들을 불러와 동기화 
+    - 호출 시점
+      - 앱 실행 시 / 네트워크 상태 변경시 (최종 동기화 시간으로 부터 10분 이상;'' 지난 경우)
+      - 설정 - 친구관리에서 수동 동기화 요청
   
 - before create/update
   - createdBy - current user 설정
@@ -189,6 +196,13 @@
     - X
   - object
     - userList - read  / only createdBy - write ( 구현 전 )
+- sync 방식
+  - syncUpdatedAt이 수정 되는 경우 
+    - Client에서 create/update 요청 시 syncUpdatedAt 설정
+    - contact의 friendUser가 수정될 때 syncUpdatedAt 설정
+    - friendUser와 연결된 _User가 수정/삭제될 시 syncUpdatedAt 설정
+  - Client에서 서버와 동기화 요청 (/fetch_contact)
+    - 서버로 부터 Client에 저장된 마지막 동기화 시간 이후의 syncUpdateAt의 데이터들을 불러와 동기화 
 
 | field | type |description |
 | ------------- | ----------- | ----------- |
