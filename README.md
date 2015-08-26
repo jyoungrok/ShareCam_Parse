@@ -181,8 +181,9 @@
   - createdBy - current user 설정
   - (_User.phone = this.phone) _User중 phone을 가진 object가 있다면 friendUser에 추가하고 syncUpdatedAt 갱신
   
-- createdBy/Phone은 1가지 쌍만을 가져야한다. 
-  - 특정 사용자가 연락처에 같은 전화번호를 2개 이상 갖을 수 있지만 parse에서는 이 중 1개만 저장한다. 
+- Client Validation
+  - createdBy/Phone은 1가지 쌍만을 가져야한다. 
+    - 특정 사용자가 연락처에 같은 전화번호를 2개 이상 갖을 수 있지만 parse에서는 이 중 1개만 저장한다. 
   
 | field | type |description |
 | ------------- | ----------- | ----------- |
@@ -225,13 +226,15 @@
   - field
     - groupList - userList of groupList write ( 구현 전 )   
 - create
-  - when you upload a picture, you should make object whose hasphoto field is "true" and photoSynched is "false".
+  - when you upload a picture, you should make object whose photoSynched is "false".
   - And then you should try updating image field.
   - if you have done , you will have to change the field of photoSynched to "true" and thumnail image will be automatically generated
 
 - expired (사진 저장 후 n일이 지난 경우)
-  - hasPhoto = false / photoSynched = false
+  -  photoSynched = false
 
+- Client Validation
+  - phoneList != NULL 
 
 | field | description |
 | ------------- | ----------- |
