@@ -181,7 +181,9 @@
   - createdBy - current user 설정
   - (_User.phone = this.phone) _User중 phone을 가진 object가 있다면 friendUser에 추가하고 syncUpdatedAt 갱신
   
-
+- createdBy/Phone은 1가지 쌍만을 가져야한다. 
+  - 특정 사용자가 연락처에 같은 전화번호를 2개 이상 갖을 수 있지만 parse에서는 이 중 1개만 저장한다. 
+  
 | field | type |description |
 | ------------- | ----------- | ----------- |
 | createdBy | Pointer<_User> | (default : current user) 생성 사용자 |
