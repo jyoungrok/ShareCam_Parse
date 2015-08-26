@@ -187,7 +187,7 @@
 | createdBy | Pointer<_User> | (default : current user) 생성 사용자 |
 | phone | string | 전화번호 |
 | friendUser | Pointer<_User> | 해당 phone을 가지고 있는 사용자(contact의 before_save / inform_new_user api 에 의해 생성) |
-| recordId | Number | 클라이언트에 저장된 contact ID (안드로이드 - CONTACT_ID) |
+| recordId | Number | 클라이언트에 저장된 contact ID (안드로이드 - RAW_CONTACT_ID) |
 | syncUpdatedAt | Number | (default : 0) 동기화시 이용하는 마지막 데이터 수정 시간(서버에서 자동 generation) (1970년 1월 1일 0시 0분 0초로부터의 시간 millisecond / new Date().getTime) | 
 
 ## Group
