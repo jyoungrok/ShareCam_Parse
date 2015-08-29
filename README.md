@@ -240,12 +240,10 @@
 | groupList | the array of group objectId...| 
 | phoneListSize | the size of phoneList field |
 | groupListSize | the size of groupList field | 
-| userList | the array of friend objectId | /** deprecated **/
 | image | file of a picture | 
 | thumImage | thumnail  file (nX128px) |
-| hasPhoto | true if this object should have a picture |
 | photoSynched | true if image filed has a picture file |
-| savedBy | the array of users who save the image |
+
 
 
 
