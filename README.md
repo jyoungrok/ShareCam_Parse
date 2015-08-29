@@ -225,23 +225,22 @@
     - userList, userList of groupList read / public write ( 구현 전 )
   - field
     - groupList - userList of groupList write ( 구현 전 )   
-- create
-  - when you upload a picture, you should make object whose photoSynched is "false".
-  - And then you should try updating image field.
-  - if you have done , you will have to change the field of photoSynched to "true" and thumnail image will be automatically generated
-
-- expired (사진 저장 후 n일이 지난 경우)
-  -  photoSynched = false
-
+- before save
+  - image(ParseFile)이 업로드 되는 경우 공유 대상(phoneList,groupList)의 user들에게 push notification
+- create 방식
+  -  saveEventually로 image(ParseFile) 없이 object 생성 (photoSynched = false)
+  - saveEvnetually의 callback에서 (네트워크 연결 상태 경우) image(ParseFile) 업로드 (photoSynched = true)
 - Client Validation
-  - phoneList != NULL 
+  - phoneList != NULL || groupList != NULL
 
 | field | description |
 | ------------- | ----------- |
 | createdBy |the user object id who create this picture|
 | phoneList | the array of phone numbers which this picture should be shared with (해당 번호의 사용자가 가입 시 해당 phone number를 지우고 friendList의 friend objectId를 추가 한다)|
 | groupList | the array of group objectId...| 
-| userList | the array of friend objectId | 
+| phoneListSize | the size of phoneList field |
+| groupListSize | the size of groupList field | 
+| userList | the array of friend objectId | /** deprecated **/
 | image | file of a picture | 
 | thumImage | thumnail  file (nX128px) |
 | hasPhoto | true if this object should have a picture |
