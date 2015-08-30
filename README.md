@@ -79,6 +79,8 @@
 #### 2. 인증번호 확인 
 - Action
   - [/sm_phone_confirm](#/sm_phone_confirm) 
+  - client session 설정 (become())
+  - installation user field를 current user로 설정 
  
 #### 3. 연락처 목록 업로드 
 - Action
