@@ -249,6 +249,22 @@
 | photoSynched | true if image filed has a picture file |
 
 
+# Push 
+
+## data format
+
+| field | type |description |
+| ------------- | ----------- | ----------- |
+| title | String |  |
+| message | String | |
+| data | Object |  |
+| type | int | data type  |
+
+## data type
+
+| name | value | data |description |
+| ------------- | ----------- | ----------- | ----------- |
+| PICTURE_SEND_NOTIFICATION | 0 | Picture |유저간 사진 전송 시 push notification |
 
 
   
