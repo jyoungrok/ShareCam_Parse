@@ -264,7 +264,7 @@
 
 | name | value | data |description |
 | ------------- | ----------- | ----------- | ----------- |
-| PICTURE_SEND_NOTIFICATION | 0 | Picture |유저간 사진 전송 시 push notification |
+| PICTURE_SEND_NOTIFICATION | 0 | {objectId:,senderId:} |유저간 사진 전송 시 push notification |
 
 
   
