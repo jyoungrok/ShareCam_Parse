@@ -264,7 +264,7 @@
 
 | name | value | data |description |
 | ------------- | ----------- | ----------- | ----------- |
-| PICTURE_SEND_NOTIFICATION | 0 | {objectId:1,senderId:2} / objectId( Picture의 objectId), senderId( sender(user)의 objectId) |유저간 사진 전송 시 push notification |
+| PICTURE_SEND_NOTIFICATION | 0 | Picture object {objectId:,createdBy .....} |유저간 사진 전송 시 push notification |
 
 
   
