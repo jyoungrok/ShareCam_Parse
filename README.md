@@ -228,7 +228,7 @@
   - field
     - groupList - userList of groupList write ( 구현 전 )   
 - before save
-  - image(ParseFile)이 업로드 되는 경우 공유 대상(phoneList,groupList)의 user들에게 push notification
+  - thumnail 이미지 저장 (  thumImage  )
 - after save
   - 공유 대상(phoneList, groupList)에 push notification 
 - create 방식
