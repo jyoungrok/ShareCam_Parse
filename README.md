@@ -110,8 +110,6 @@
 
 # Class
 
-
-
 ## _User
 - ACL
   - class
@@ -228,7 +226,7 @@
   - field
     - groupList - userList of groupList write ( 구현 전 )   
 - before save
-  - thumnail 이미지 저장 (  thumImage  )
+  - image를 정사각형으로 crop 후 128x128로 resizing 하여 thumImage에 저장 
 - after save
   - 공유 대상(phoneList, groupList)에 push notification 
 - create 방식
