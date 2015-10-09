@@ -122,7 +122,7 @@
   - comepleted - false
   - username - phone
   - (Friend.friendUser = this) userName,phone,profile 중 하나가 바뀐 경우 friend obejct의 syncUpdatedAt 수정 (friend class 설명 참조)
-  - profile을 수정/등록 하는 경우 thumPorfile, height, width 생성 및 저장
+  - profile을 수정/등록 하는 경우 thumPorfile(128x128), height, width 생성 및 저장
 - after delete
   -  (Friend.friendUser = this) friend object의 deleted = true
   -  (Contact.createdBy = this) contact object 모두 삭제
@@ -226,7 +226,7 @@
   - field
     - groupList - userList of groupList write ( 구현 전 )   
 - before save
-  - image를 정사각형으로 crop 후 128x128로 resizing 하여 thumImage에 저장 
+  - image를 nX300 or 300xn (width, height 중 더 긴 길이를 n이라 가정) 사이즈 로 resizing 하여 thumImage에 저장 
 - after save
   - 공유 대상(phoneList, groupList)에 push notification 
 - create 방식
@@ -243,7 +243,7 @@
 | phoneListSize | the size of phoneList field |
 | groupListSize | the size of groupList field | 
 | image | file of a picture | 
-| thumImage | thumnail  file (nX128px) |
+| thumImage | thumnail  file (nX300px or 300xn) |
 | photoSynched | true if image filed has a picture file |
 
 
